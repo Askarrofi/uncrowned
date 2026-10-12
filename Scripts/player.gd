@@ -7,6 +7,7 @@ var is_dashing = false
 const DASH_SPEED = 1200.0
 const DASH_DURASI = 0.25
 const LASER_SCENE = preload("res://Scenes/laser.tscn")
+@onready var camera = $"../Camera2D"
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -98,6 +99,6 @@ func _physics_process(delta: float) -> void:
 
 func _on_sword_body_entered(body: Node2D) -> void:
 	print("Hit: ", body.name)
-	
+	camera.add_trauma(0.5)
 	if body.has_method("mati"): 
 		body.mati()

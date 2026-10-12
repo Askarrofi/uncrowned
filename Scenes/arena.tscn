@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b5o7e3p76lhcp" path="res://Assets/Finish.png" id="2_27ga2"]
 [ext_resource type="PackedScene" uid="uid://ckkcub07lu680" path="res://Scenes/player.tscn" id="3_nnts3"]
 [ext_resource type="PackedScene" uid="uid://c53b8nuk5cvvp" path="res://Scenes/enemy.tscn" id="4_1v1nj"]
+[ext_resource type="Script" uid="uid://c5scq5byl6raq" path="res://Scenes/camera_2d.gd" id="5_kcpg1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_27ga2"]
 texture = ExtResource("2_27ga2")
@@ -1178,3 +1179,7 @@ position = Vector2(1086, 472)
 
 [node name="Enemy" parent="." unique_id=1612622321 instance=ExtResource("4_1v1nj")]
 position = Vector2(239, 520)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=904814360]
+position = Vector2(575, 325)
+script = ExtResource("5_kcpg1")

@@ -5,6 +5,7 @@ var direction = Vector2.ZERO
 var target = ""
 
 @export var explode_scene: PackedScene
+@onready var camera = $"../Camera2D"
 
 func _ready() -> void:
 	await get_tree().create_timer(2.0).timeout
@@ -22,6 +23,7 @@ func explode() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	print("Hit: ", body.name)
+	camera.add_trauma(0.5)
 	if body.has_method("mati"): 
 		body.mati()
 	explode()
