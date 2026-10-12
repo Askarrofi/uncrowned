@@ -1,0 +1,115 @@
+[gd_scene format=3 uid="uid://cyx7ith1kfppw"]
+
+[ext_resource type="Texture2D" uid="uid://daw0w10eooe3a" path="res://Assets/Jam.png" id="1_yxkgr"]
+[ext_resource type="Script" uid="uid://d18o5bt8vp4ky" path="res://Scripts/time_rewind.gd" id="2_w73um"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjg11"]
+atlas = ExtResource("1_yxkgr")
+region = Rect2(0, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdt56"]
+atlas = ExtResource("1_yxkgr")
+region = Rect2(200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4o28"]
+atlas = ExtResource("1_yxkgr")
+region = Rect2(400, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ql61r"]
+atlas = ExtResource("1_yxkgr")
+region = Rect2(600, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wuauj"]
+atlas = ExtResource("1_yxkgr")
+region = Rect2(800, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8uj0"]
+atlas = ExtResource("1_yxkgr")
+region = Rect2(1000, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6tds3"]
+atlas = ExtResource("1_yxkgr")
+region = Rect2(1200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7v8f"]
+atlas = ExtResource("1_yxkgr")
+region = Rect2(1400, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ks1tm"]
+atlas = ExtResource("1_yxkgr")
+region = Rect2(1600, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cpud7"]
+atlas = ExtResource("1_yxkgr")
+region = Rect2(1800, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pk048"]
+atlas = ExtResource("1_yxkgr")
+region = Rect2(2000, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4h8os"]
+atlas = ExtResource("1_yxkgr")
+region = Rect2(2200, 0, 200, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qvxjj"]
+atlas = ExtResource("1_yxkgr")
+region = Rect2(2400, 0, 200, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gwcng"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hjg11")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bdt56")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w4o28")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ql61r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wuauj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a8uj0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6tds3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7v8f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ks1tm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cpud7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pk048")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4h8os")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qvxjj")
+}],
+"loop": 0,
+"name": &"time_rewind",
+"speed": 13.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" unique_id=620787526]
+z_index = 2
+position = Vector2(590, 323)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_gwcng")
+animation = &"time_rewind"
+autoplay = "time_rewind"
+frame_progress = 0.48004392
+script = ExtResource("2_w73um")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c53b8nuk5cvvp"]
 
 [ext_resource type="Script" uid="uid://c218np3seh5p1" path="res://Scripts/enemy.gd" id="1_1f0kj"]
+[ext_resource type="PackedScene" uid="uid://cyx7ith1kfppw" path="res://Scenes/time_rewind.tscn" id="2_287tu"]
 [ext_resource type="Texture2D" uid="uid://cia6nijb33k2b" path="res://Assets/karakter/FreeKnight_v1/Colour2/NoOutline/120x80_PNGSheets/_Idle.png" id="2_afpow"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hghv2"]
@@ -87,6 +88,7 @@ size = Vector2(19.267094, 37.023045)
 [node name="Enemy" type="CharacterBody2D" unique_id=1689468557]
 collision_layer = 2
 script = ExtResource("1_1f0kj")
+time_rewind_scene = ExtResource("2_287tu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=566516114]
 scale = Vector2(2.647, 2.647)
