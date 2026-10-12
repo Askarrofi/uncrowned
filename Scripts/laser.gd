@@ -21,7 +21,7 @@ func explode() -> void:
 	queue_free()
 
 func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group(target):
-		explode()
-	elif not body.is_in_group("player") and not body.is_in_group("enemy"):
-		explode()
+	print("Hit: ", body.name)
+	if body.has_method("mati"): 
+		body.mati()
+	explode()

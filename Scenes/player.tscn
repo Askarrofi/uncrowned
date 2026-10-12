@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ulndokllnbe8" path="res://Assets/karakter/FreeKnight_v1/Colour1/NoOutline/120x80_PNGSheets/_Attack.png" id="2_sweqy"]
 [ext_resource type="Texture2D" uid="uid://bibdjtqgrxru0" path="res://Assets/karakter/FreeKnight_v1/Colour1/NoOutline/120x80_PNGSheets/_Jump.png" id="3_sweqy"]
 [ext_resource type="Texture2D" uid="uid://dniah1ptjrosg" path="res://Assets/karakter/FreeKnight_v1/Colour1/NoOutline/120x80_PNGSheets/_Run.png" id="4_2hs0m"]
+[ext_resource type="Texture2D" uid="uid://dsyerp567p2js" path="res://Assets/karakter/FreeKnight_v1/Colour1/NoOutline/120x80_PNGSheets/_Dash.png" id="4_3smsa"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o6iob"]
 size = Vector2(51, 98)
@@ -49,6 +50,14 @@ region = Rect2(480, 0, 120, 80)
 [sub_resource type="AtlasTexture" id="AtlasTexture_1xqrm"]
 atlas = ExtResource("2_2hs0m")
 region = Rect2(600, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3smsa"]
+atlas = ExtResource("4_3smsa")
+region = Rect2(0, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8erm5"]
+atlas = ExtResource("4_3smsa")
+region = Rect2(120, 0, 120, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1jxqw"]
 atlas = ExtResource("2_hqtel")
@@ -186,6 +195,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_3smsa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8erm5")
+}],
+"loop": 1,
+"name": &"dash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_1jxqw")
 }, {
 "duration": 1.0,
@@ -269,15 +289,31 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_o6iob"]
+radius = 30.735622
+
 [node name="Player" type="CharacterBody2D" unique_id=1024463481]
+z_index = 1
+collision_mask = 3
 script = ExtResource("1_onrkg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=634935388]
-position = Vector2(4.5, 54)
+position = Vector2(-3, 52)
 shape = SubResource("RectangleShape2D_o6iob")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=377535259]
-position = Vector2(15, -5)
+position = Vector2(9, -6)
 scale = Vector2(2.2124996, 2.646875)
 sprite_frames = SubResource("SpriteFrames_qknng")
-animation = &"idle"
+animation = &"attack2"
+
+[node name="Sword" type="Area2D" parent="." unique_id=1507686382]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sword" unique_id=651517490]
+position = Vector2(82.99999, 50)
+scale = Vector2(1.3057386, -1.2013794)
+shape = SubResource("CircleShape2D_o6iob")
+disabled = true
+
+[connection signal="body_entered" from="Sword" to="." method="_on_sword_body_entered"]
