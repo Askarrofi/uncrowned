@@ -1178,7 +1178,7 @@ layer_0/tile_data = PackedInt32Array(2293771, 131072, 16, 2293772, 196608, 16, 2
 position = Vector2(1086, 472)
 
 [node name="Enemy" parent="." unique_id=1612622321 instance=ExtResource("4_1v1nj")]
-position = Vector2(239, 520)
+position = Vector2(232, 451)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=904814360]
 position = Vector2(575, 325)

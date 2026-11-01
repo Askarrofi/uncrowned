@@ -68,9 +68,14 @@ func _physics_process(delta: float) -> void:
 			use_stamina(DASH_STAMINA_COST) # Kurangi stamina
 			is_dashing = true
 			$AnimatedSprite2D.play("dash")
-			set_collision_mask_value(2, false)
+			# Tembus HANYA musuh (lantai & tembok tetap solid), tidak peduli nomor layer
+			var enemies = _get_enemies()
+			for e in enemies:
+				add_collision_exception_with(e)
 			await get_tree().create_timer(DASH_DURASI).timeout
-			set_collision_mask_value(2, true)
+			for e in enemies:
+				if is_instance_valid(e):
+					remove_collision_exception_with(e)
 			is_dashing = false
 	# ==============================================================
 		
@@ -143,6 +148,14 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+
+# Cari semua musuh di scene (node CharacterBody2D yang punya fungsi mati())
+func _get_enemies() -> Array:
+	var result: Array = []
+	for n in get_parent().find_children("*", "CharacterBody2D", true, false):
+		if n != self and n.has_method("mati"):
+			result.append(n)
+	return result
 
 func _on_sword_body_entered(body: Node2D) -> void:
 	print("Hit: ", body.name)
