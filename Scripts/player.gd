@@ -72,7 +72,6 @@ func _physics_process(delta: float) -> void:
 			await get_tree().create_timer(DASH_DURASI).timeout
 			set_collision_mask_value(2, true)
 			is_dashing = false
-			take_damage(50)
 	# ==============================================================
 		
 	if Input.is_action_just_pressed("up") and is_on_floor() and not is_blocking:
