@@ -322,7 +322,7 @@ sprite_frames = SubResource("SpriteFrames_qknng")
 animation = &"attack2"
 
 [node name="Sword" type="Area2D" parent="." unique_id=1507686382]
-collision_mask = 3
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sword" unique_id=651517490]
 position = Vector2(82.99999, 50)
