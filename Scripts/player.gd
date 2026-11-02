@@ -14,14 +14,14 @@ var is_dashing = false
 # === TAMBAHAN SISTEM STAMINA (State & Biaya) ===
 var is_blocking = false
 var stamina_regen_timer: float = 0.0
-const DASH_STAMINA_COST = 30.0    # Biaya stamina untuk 1x dash
+const DASH_STAMINA_COST = 40.0    # Biaya stamina untuk 1x dash
 const BLOCK_DRAIN_RATE = 20.0     # Stamina berkurang per detik saat nahan block
 const STAMINA_REGEN_RATE = 50.0   # Kecepatan regen stamina per detik
 const STAMINA_REGEN_DELAY = 1.0   # Jeda 1 detik sebelum mulai regen
 # =================================================
 
-const DASH_SPEED = 1200.0
-const DASH_DURASI = 0.25
+const DASH_SPEED = 1000.0
+const DASH_DURASI = 0.15
 const LASER_SCENE = preload("res://Scenes/laser.tscn")
 @onready var camera = $"../Camera2D"
 
@@ -160,8 +160,8 @@ func _get_enemies() -> Array:
 func _on_sword_body_entered(body: Node2D) -> void:
 	print("Hit: ", body.name)
 	camera.add_trauma(0.5)
-	if body.has_method("mati"): 
-		body.mati()
+	if body.has_method("take_damage"): 
+		body.take_damage(50)
 
 func take_damage(amount: int):
 	# === LOGIKA REDUKSI DAMAGE SAAT BLOCK ===
@@ -194,11 +194,6 @@ func use_stamina(amount: float):
 	# Reset timer ke 1 detik agar tidak langsung regen saat sedang dipakai
 	stamina_regen_timer = STAMINA_REGEN_DELAY 
 # =================================
-
-func heal(amount: int):
-	current_hp += amount
-	current_hp = clamp(current_hp, 0, max_hp)
-	hp_changed.emit(current_hp, max_hp)
 
 func die():
 	player_died.emit()

@@ -319,7 +319,7 @@ shape = SubResource("RectangleShape2D_o6iob")
 position = Vector2(2, -1)
 scale = Vector2(2.2124996, 2.646875)
 sprite_frames = SubResource("SpriteFrames_qknng")
-animation = &"attack2"
+animation = &"attack"
 
 [node name="Sword" type="Area2D" parent="." unique_id=1507686382]
 collision_mask = 2
@@ -329,6 +329,7 @@ position = Vector2(82.99999, 50)
 scale = Vector2(1.3057386, -1.2013794)
 shape = SubResource("CircleShape2D_o6iob")
 disabled = true
+debug_color = Color(0.96311826, 0.88744634, 0.9735878, 0.41960785)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=960926357]
 

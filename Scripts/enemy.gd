@@ -325,8 +325,8 @@ func _ai_dash(dir: int) -> void:
 func _on_sword_body_entered(body: Node2D) -> void:
 	print("Hit: ", body.name)
 	camera.add_trauma(0.5)
-	if body.has_method("mati"): 
-		body.mati()
+	if body.has_method("take_damage"): 
+		body.take_damage(10)
 
 
 # === SISTEM PENGURANGAN STAT ===

@@ -306,7 +306,8 @@ shape = SubResource("RectangleShape2D_m4x7e")
 position = Vector2(2, -1)
 scale = Vector2(2.2124996, 2.646875)
 sprite_frames = SubResource("SpriteFrames_vt4ob")
-animation = &"idle"
+animation = &"dash"
+autoplay = "dash"
 
 [node name="Sword" type="Area2D" parent="." unique_id=112137823]
 collision_mask = 3
