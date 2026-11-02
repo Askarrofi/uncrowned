@@ -319,7 +319,7 @@ shape = SubResource("RectangleShape2D_o6iob")
 position = Vector2(2, -1)
 scale = Vector2(2.2124996, 2.646875)
 sprite_frames = SubResource("SpriteFrames_qknng")
-animation = &"attack"
+animation = &"idle"
 
 [node name="Sword" type="Area2D" parent="." unique_id=1507686382]
 collision_mask = 2

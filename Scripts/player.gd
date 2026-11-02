@@ -46,6 +46,7 @@ func _ready():
 	
 	hp_changed.emit(current_hp, max_hp) 
 	sta_changed.emit(current_sta, max_sta)
+	$AnimatedSprite2D.flip_h = true
 
 func _physics_process(delta: float) -> void:
 	# === SISTEM REGENERASI STAMINA ===

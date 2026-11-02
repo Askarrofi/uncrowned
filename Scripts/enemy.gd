@@ -4,6 +4,7 @@ extends CharacterBody2D
 var posisi_awal: Vector2
 @export var time_rewind_scene: PackedScene
 @onready var camera = $"../Camera2D"
+@export_file("*.tscn") var next_scene: String = "res://Scenes/cutscene.tscn"
 # =================================
 
 # === SINYAL ===
@@ -382,15 +383,17 @@ func mati() -> void:
 	time_rewind()
 
 	await get_tree().create_timer(1.0).timeout
-
+	get_tree().change_scene_to_file(next_scene)
+	
+	
 	# Respawn
-	global_position = posisi_awal
-	velocity = Vector2.ZERO
-	current_hp = max_hp
-	current_sta = float(max_sta)
-	ai_timer = 1.0
-	hp_changed.emit(current_hp, max_hp)
-	sta_changed.emit(current_sta, max_sta)
-	show()
-	$CollisionShape2D.set_deferred("disabled", false)
-	is_dead = false
+	#global_position = posisi_awal
+	#velocity = Vector2.ZERO
+	#current_hp = max_hp
+	#current_sta = float(max_sta)
+	#ai_timer = 1.0
+	#hp_changed.emit(current_hp, max_hp)
+	#sta_changed.emit(current_sta, max_sta)
+	#show()
+	#$CollisionShape2D.set_deferred("disabled", false)
+	#is_dead = false
