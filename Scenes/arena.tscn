@@ -1,10 +1,19 @@
 [gd_scene format=3 uid="uid://y2lnxh1pt6q5"]
 
 [ext_resource type="Texture2D" uid="uid://b3osyjhtv84en" path="res://Assets/space_background_pack/Assets/Blue Version/layered/blue-with-stars.png" id="1_444vf"]
+[ext_resource type="Shader" uid="uid://bip2wop1j5cn0" path="res://Shader/bg.gdshader" id="1_g2joa"]
 [ext_resource type="Texture2D" uid="uid://b5o7e3p76lhcp" path="res://Assets/Finish.png" id="2_27ga2"]
 [ext_resource type="PackedScene" uid="uid://ckkcub07lu680" path="res://Scenes/player.tscn" id="3_nnts3"]
 [ext_resource type="PackedScene" uid="uid://c53b8nuk5cvvp" path="res://Scenes/enemy.tscn" id="4_1v1nj"]
 [ext_resource type="Script" uid="uid://c5scq5byl6raq" path="res://Scripts/camera_2d.gd" id="5_kcpg1"]
+[ext_resource type="Shader" uid="uid://cljlej2toe11x" path="res://Scenes/vignette.gdshader" id="6_csrox"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_cs8mb"]
+shader = ExtResource("1_g2joa")
+shader_parameter/speed = 0.3
+shader_parameter/wave = 0.002
+shader_parameter/pulse = 0.15
+shader_parameter/tint = Color(1, 1, 1, 1)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kcpg1"]
 texture = ExtResource("2_27ga2")
@@ -1152,9 +1161,17 @@ texture = ExtResource("2_27ga2")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_g2joa")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g2joa"]
+shader = ExtResource("6_csrox")
+shader_parameter/intensity = 0.6
+shader_parameter/softness = 0.5
+shader_parameter/inner_radius = 0.3
+shader_parameter/tint = Color(0.02, 0, 0.08, 1)
+
 [node name="Arena" type="Node2D" unique_id=1362556593]
 
 [node name="Background" type="Sprite2D" parent="." unique_id=776277605]
+material = SubResource("ShaderMaterial_cs8mb")
 position = Vector2(587, 329)
 scale = Vector2(4.5, 4.5)
 texture = ExtResource("1_444vf")
@@ -1183,3 +1200,11 @@ position = Vector2(200, 470)
 [node name="Camera2D" type="Camera2D" parent="." unique_id=904814360]
 position = Vector2(575, 325)
 script = ExtResource("5_kcpg1")
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D" unique_id=2037420363]
+material = SubResource("ShaderMaterial_g2joa")
+offset_left = -572.0
+offset_top = -323.0
+offset_right = 571.0
+offset_bottom = 322.0
+metadata/_edit_use_anchors_ = true

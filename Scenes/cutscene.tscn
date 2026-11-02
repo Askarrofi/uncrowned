@@ -3,9 +3,18 @@
 [ext_resource type="Script" uid="uid://ddjnw01n1qepj" path="res://Scripts/cutscene.gd" id="1_j1a0j"]
 [ext_resource type="Texture2D" uid="uid://b3osyjhtv84en" path="res://Assets/space_background_pack/Assets/Blue Version/layered/blue-with-stars.png" id="1_vlwh7"]
 [ext_resource type="Texture2D" uid="uid://b5o7e3p76lhcp" path="res://Assets/Finish.png" id="2_jd5kf"]
+[ext_resource type="Shader" uid="uid://bip2wop1j5cn0" path="res://Shader/bg.gdshader" id="2_k6rhx"]
 [ext_resource type="PackedScene" uid="uid://dnbtochnf6kxe" path="res://Scenes/playeractor.tscn" id="3_iy4n7"]
 [ext_resource type="PackedScene" uid="uid://bqnthxb0ba70w" path="res://Scenes/Enemyactor.tscn" id="4_j1a0j"]
 [ext_resource type="Script" uid="uid://c5scq5byl6raq" path="res://Scripts/camera_2d.gd" id="6_j6j7k"]
+[ext_resource type="Shader" uid="uid://cljlej2toe11x" path="res://Scenes/vignette.gdshader" id="7_20k8y"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0hfk5"]
+shader = ExtResource("2_k6rhx")
+shader_parameter/speed = 0.3
+shader_parameter/wave = 0.002
+shader_parameter/pulse = 0.15
+shader_parameter/tint = Color(1, 1, 1, 1)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iy4n7"]
 texture = ExtResource("2_jd5kf")
@@ -1301,10 +1310,18 @@ _data = {
 &"cutscene": SubResource("Animation_iy4n7")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k6rhx"]
+shader = ExtResource("7_20k8y")
+shader_parameter/intensity = 0.6
+shader_parameter/softness = 0.5
+shader_parameter/inner_radius = 0.3
+shader_parameter/tint = Color(0.02, 0, 0.08, 1)
+
 [node name="Cutscene" type="Node2D" unique_id=1144852692]
 script = ExtResource("1_j1a0j")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1749879014]
+material = SubResource("ShaderMaterial_0hfk5")
 position = Vector2(587, 329)
 scale = Vector2(4.5, 4.5)
 texture = ExtResource("1_vlwh7")
@@ -1337,3 +1354,11 @@ libraries/ = SubResource("AnimationLibrary_j1a0j")
 position = Vector2(222, 465)
 zoom = Vector2(2.6, 2.6)
 script = ExtResource("6_j6j7k")
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D" unique_id=794522036]
+material = SubResource("ShaderMaterial_k6rhx")
+offset_left = -572.0
+offset_top = -323.0
+offset_right = 571.0
+offset_bottom = 322.0
+metadata/_edit_use_anchors_ = true
