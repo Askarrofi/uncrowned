@@ -51,10 +51,6 @@ region = Rect2(2000, 0, 200, 200)
 atlas = ExtResource("1_yxkgr")
 region = Rect2(2200, 0, 200, 200)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qvxjj"]
-atlas = ExtResource("1_yxkgr")
-region = Rect2(2400, 0, 200, 200)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_gwcng"]
 animations = [{
 "frames": [{
@@ -93,11 +89,8 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4h8os")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qvxjj")
 }],
-"loop": 0,
+"loop": 1,
 "name": &"time_rewind",
 "speed": 13.0
 }]

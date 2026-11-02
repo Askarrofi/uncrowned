@@ -380,10 +380,9 @@ func mati() -> void:
 
 	hide()
 	$CollisionShape2D.set_deferred("disabled", true)
-	time_rewind()
 
 	await get_tree().create_timer(1.0).timeout
-	get_tree().change_scene_to_file(next_scene)
+	Fade.change_scene(next_scene, 3)
 	
 	
 	# Respawn
