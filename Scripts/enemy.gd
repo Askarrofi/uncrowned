@@ -58,6 +58,7 @@ var retreat_range: float = 250.0 # Jarak mundur saat stamina rendah
 
 
 func _ready() -> void:
+	$AnimatedSprite2D.play("idle")
 	posisi_awal = global_position
 	current_hp = max_hp
 	current_sta = float(max_sta)
