@@ -4,7 +4,7 @@ extends CharacterBody2D
 var posisi_awal: Vector2
 @export var time_rewind_scene: PackedScene
 @onready var camera = $"../Camera2D"
-@export_file("*.tscn") var next_scene: String = "res://Scenes/cutscene.tscn"
+@export_file("*.tscn") var next_scene: String = "res://Scenes/cutscene2.tscn"
 # =================================
 
 # === SINYAL ===
