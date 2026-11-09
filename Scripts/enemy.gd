@@ -4,7 +4,6 @@ extends CharacterBody2D
 var posisi_awal: Vector2
 @export var time_rewind_scene: PackedScene
 @onready var camera = $"../Camera2D"
-@export_file("*.tscn") var next_scene: String = "res://Scenes/cutscene2.tscn"
 # =================================
 
 # === SINYAL ===
@@ -383,7 +382,7 @@ func mati() -> void:
 	$CollisionShape2D.set_deferred("disabled", true)
 
 	await get_tree().create_timer(1.0).timeout
-	Fade.change_scene(next_scene, 3)
+	FT.change_scene("res://Scenes/cutscene2.tscn", 3)
 	
 	
 	# Respawn

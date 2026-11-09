@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dnbtochnf6kxe" path="res://Scenes/playeractor.tscn" id="3_iy4n7"]
 [ext_resource type="PackedScene" uid="uid://bqnthxb0ba70w" path="res://Scenes/Enemyactor.tscn" id="4_j1a0j"]
 [ext_resource type="Script" uid="uid://c5scq5byl6raq" path="res://Scripts/camera_2d.gd" id="6_j6j7k"]
-[ext_resource type="Shader" uid="uid://cljlej2toe11x" path="res://Scenes/vignette.gdshader" id="7_20k8y"]
+[ext_resource type="Shader" uid="uid://cljlej2toe11x" path="res://Shader/vignette.gdshader" id="7_20k8y"]
 [ext_resource type="Script" uid="uid://dbbsbjvsa4wvm" path="res://Scripts/color_rect.gd" id="9_0hfk5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0hfk5"]

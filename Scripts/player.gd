@@ -201,3 +201,4 @@ func die():
 	player_died.emit()
 	print("Player telah mati!")
 	queue_free()
+	FD.change_scene("res://Scenes/mainmenu.tscn")

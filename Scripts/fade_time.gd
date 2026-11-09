@@ -24,7 +24,6 @@ func change_scene(path: String, duration: float = 0.5) -> void:
 	changing = true
 	rect.mouse_filter = Control.MOUSE_FILTER_STOP   # blokir klik saat transisi
 
-	# Fade out (layar jadi hitam)
 	var t_out = create_tween()
 	t_out.tween_property(rect, "modulate:a", 1.0, duration)
 	await t_out.finished

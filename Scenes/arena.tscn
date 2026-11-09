@@ -6,8 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://ckkcub07lu680" path="res://Scenes/player.tscn" id="3_nnts3"]
 [ext_resource type="PackedScene" uid="uid://c53b8nuk5cvvp" path="res://Scenes/enemy.tscn" id="4_1v1nj"]
 [ext_resource type="Script" uid="uid://c5scq5byl6raq" path="res://Scripts/camera_2d.gd" id="5_kcpg1"]
-[ext_resource type="Shader" uid="uid://cljlej2toe11x" path="res://Scenes/vignette.gdshader" id="6_csrox"]
+[ext_resource type="Shader" uid="uid://cljlej2toe11x" path="res://Shader/vignette.gdshader" id="6_csrox"]
 [ext_resource type="Script" uid="uid://dbbsbjvsa4wvm" path="res://Scripts/color_rect.gd" id="8_cs8mb"]
+[ext_resource type="PackedScene" uid="uid://xr0akrgormpr" path="res://Scenes/pause_menu.tscn" id="9_xrytr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cs8mb"]
 shader = ExtResource("1_g2joa")
@@ -1210,3 +1211,5 @@ offset_right = 571.0
 offset_bottom = 322.0
 script = ExtResource("8_cs8mb")
 metadata/_edit_use_anchors_ = true
+
+[node name="PauseMenu" parent="." unique_id=1985324392 instance=ExtResource("9_xrytr")]
