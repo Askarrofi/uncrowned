@@ -13,4 +13,4 @@ func _ready():
 	self.pressed.connect(_button_pressed)
 
 func _button_pressed():
-	SM.change_scene("res://Scenes/cutscene.tscn")
+	FD.change_scene("res://Scenes/cutscene.tscn")
