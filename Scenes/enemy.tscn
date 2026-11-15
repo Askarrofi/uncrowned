@@ -1,13 +1,14 @@
 [gd_scene format=3 uid="uid://c53b8nuk5cvvp"]
 
 [ext_resource type="Script" uid="uid://c218np3seh5p1" path="res://Scripts/enemy.gd" id="1_1f0kj"]
-[ext_resource type="PackedScene" uid="uid://cyx7ith1kfppw" path="res://Scenes/time_rewind.tscn" id="2_287tu"]
+[ext_resource type="PackedScene" uid="uid://cyx7ith1kfppw" path="res://Scenes/time_rewind.tscn" id="2_8uf12"]
 [ext_resource type="Texture2D" uid="uid://ulndokllnbe8" path="res://Assets/karakter/FreeKnight_v1/Colour1/NoOutline/120x80_PNGSheets/_Attack.png" id="3_auwsv"]
 [ext_resource type="Texture2D" uid="uid://cilrufjn2g648" path="res://Assets/karakter/FreeKnight_v1/Colour1/NoOutline/120x80_PNGSheets/_Attack2.png" id="4_8uf12"]
 [ext_resource type="Texture2D" uid="uid://dsyerp567p2js" path="res://Assets/karakter/FreeKnight_v1/Colour1/NoOutline/120x80_PNGSheets/_Dash.png" id="5_po0sg"]
 [ext_resource type="Texture2D" uid="uid://cr641fdnya770" path="res://Assets/karakter/FreeKnight_v1/Colour1/NoOutline/120x80_PNGSheets/_Idle.png" id="6_haro7"]
 [ext_resource type="Texture2D" uid="uid://bibdjtqgrxru0" path="res://Assets/karakter/FreeKnight_v1/Colour1/NoOutline/120x80_PNGSheets/_Jump.png" id="7_56vhr"]
 [ext_resource type="Texture2D" uid="uid://dniah1ptjrosg" path="res://Assets/karakter/FreeKnight_v1/Colour1/NoOutline/120x80_PNGSheets/_Run.png" id="8_ta2yt"]
+[ext_resource type="PackedScene" uid="uid://b7fmdf7sodfal" path="res://Scenes/stat_bar.tscn" id="9_8uf12"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m4x7e"]
 size = Vector2(51, 98)
@@ -293,10 +294,12 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_hgeoe"]
 radius = 30.735622
 
-[node name="Enemy" type="CharacterBody2D" unique_id=1689468557]
+[node name="Enemy" type="CharacterBody2D" unique_id=1689468557 node_paths=PackedStringArray("health_bar")]
+position = Vector2(0, 1)
 collision_layer = 2
 script = ExtResource("1_1f0kj")
-time_rewind_scene = ExtResource("2_287tu")
+time_rewind_scene = ExtResource("2_8uf12")
+health_bar = NodePath("CanvasLayer/HealthBar")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1521468092]
 position = Vector2(-3, 52)
@@ -318,4 +321,14 @@ scale = Vector2(1.3057386, -1.2013794)
 shape = SubResource("CircleShape2D_hgeoe")
 disabled = true
 
+[node name="CanvasLayer" parent="." unique_id=2116284013 instance=ExtResource("9_8uf12")]
+
+[node name="HealthBar" parent="CanvasLayer" index="1" unique_id=1069104968]
+offset_left = 242.0
+offset_top = 591.0
+offset_right = 992.0
+offset_bottom = 631.0
+
 [connection signal="body_entered" from="Sword" to="." method="_on_sword_body_entered"]
+
+[editable path="CanvasLayer"]

@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://b7fmdf7sodfal"]
+
+[ext_resource type="Script" uid="uid://kktiuh50kdvd" path="res://Scripts/stamina_bar.gd" id="1_o23jr"]
+[ext_resource type="Script" uid="uid://bio4v7qcopje8" path="res://Scripts/health_bar.gd" id="2_hnqjn"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_8erm5"]
+size = Vector2(500, 20)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_gymyn"]
+size = Vector2(500, 20)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_f1ek2"]
+size = Vector2(750, 20)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_tx1dd"]
+size = Vector2(750, 20)
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=2116284013]
+
+[node name="StaminaBar" type="TextureProgressBar" parent="." unique_id=1190752103]
+offset_left = -1.0
+offset_top = 41.0
+offset_right = 499.0
+offset_bottom = 297.0
+value = 50.0
+rounded = true
+texture_under = SubResource("PlaceholderTexture2D_8erm5")
+texture_progress = SubResource("PlaceholderTexture2D_gymyn")
+tint_under = Color(0, 0, 0, 1)
+tint_progress = Color(0, 0.5647059, 1, 1)
+script = ExtResource("1_o23jr")
+
+[node name="HealthBar" type="TextureProgressBar" parent="." unique_id=1069104968]
+offset_left = -1.0
+offset_top = 18.0
+offset_right = 99.0
+offset_bottom = 58.0
+texture_under = SubResource("PlaceholderTexture2D_f1ek2")
+texture_progress = SubResource("PlaceholderTexture2D_tx1dd")
+tint_under = Color(0, 0, 0, 1)
+tint_progress = Color(0.8564939, 3.657937e-06, 8.663535e-07, 1)
+script = ExtResource("2_hnqjn")

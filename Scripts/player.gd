@@ -26,14 +26,14 @@ const LASER_SCENE = preload("res://Scenes/laser.tscn")
 @onready var camera = $"../Camera2D"
 
 # === TAMBAHAN SISTEM HP & STAMINA (Variabel) ===
+@export var health_bar: TextureProgressBar
+@export var stamina_bar: TextureProgressBar
 @export var max_hp: int = 100
 var current_hp: int
-@onready var health_bar: TextureProgressBar = $CanvasLayer/HealthBar
 
 @export var max_sta: int = 100
 # Menggunakan float agar pengurangan tahan block & regen jadi sangat mulus (smooth)
 var current_sta: float 
-@onready var stamina_bar: TextureProgressBar = $CanvasLayer/StaminaBar
 # ===========================================
 
 func _ready():
