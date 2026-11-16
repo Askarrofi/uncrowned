@@ -323,6 +323,9 @@ disabled = true
 
 [node name="CanvasLayer" parent="." unique_id=2116284013 instance=ExtResource("9_8uf12")]
 
+[node name="StaminaBar" parent="CanvasLayer" index="0" unique_id=1190752103]
+visible = false
+
 [node name="HealthBar" parent="CanvasLayer" index="1" unique_id=1069104968]
 offset_left = 242.0
 offset_top = 591.0

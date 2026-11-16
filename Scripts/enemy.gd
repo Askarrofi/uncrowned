@@ -17,10 +17,6 @@ signal enemy_died
 static var rewind_count: int = 0
 const MAX_SCALING_REWINDS = 10 # Batas iterasi yang menaikkan stat (biar tidak absurd)
 
-## Panggil dari script lain kalau rewind dipicu di tempat lain:  BossEnemy.register_rewind()
-static func register_rewind() -> void:
-	rewind_count += 1
-
 # === STAT DASAR (nilai di Inspector = stat pada iterasi ke-0) ===
 @export var health_bar: TextureProgressBar
 @export var max_hp: int = 100
@@ -37,10 +33,6 @@ static func register_rewind() -> void:
 @export var damage_scale_per_rewind: float = 0.15
 ## +20% stamina (dan kecepatan regen) per iterasi
 @export var stamina_scale_per_rewind: float = 0.20
-## Otomatis tambah iterasi saat player mati (sinyal player_died)
-@export var count_on_player_death: bool = true
-## Reset iterasi ke 0 setelah boss dikalahkan
-@export var reset_on_defeat: bool = true
 
 var current_hp: int
 var current_sta: float
@@ -86,7 +78,6 @@ var block_timer: float = 0.0
 var dash_dir: int = 1
 var sword_has_hit = false
 var is_recovering = false
-var rewind_counted = false
 
 var attack_range: float = 80.0
 var sight_range: float = 1000.0
@@ -107,7 +98,6 @@ func _ready() -> void:
 	posisi_awal = global_position
 
 	player = get_parent().get_node_or_null("Player")
-	_connect_player_signal()
 
 	if has_node("Sword"):
 		if has_node("Sword/CollisionShape2D"):
@@ -132,20 +122,6 @@ func _apply_rewind_scaling() -> void:
 	laser_damage_now = int(round(laser_damage * (1.0 + damage_scale_per_rewind * n)))
 	regen_rate = STAMINA_REGEN_RATE * (1.0 + stamina_scale_per_rewind * n)
 	reaction_now = minf(reaction_chance + 0.06 * n, 0.95)
-
-
-func _connect_player_signal() -> void:
-	if not count_on_player_death or player == null:
-		return
-	if player.has_signal("player_died") and not player.is_connected("player_died", _on_player_died):
-		player.connect("player_died", _on_player_died)
-
-
-func _on_player_died() -> void:
-	if is_dead or rewind_counted:
-		return
-	rewind_counted = true
-	rewind_count += 1
 
 
 # === FASE BOSS (makin parah saat HP menipis) ===
@@ -298,9 +274,6 @@ func _validate_player() -> void:
 		player = null
 	if player == null:
 		player = get_parent().get_node_or_null("Player")
-		if player != null:
-			rewind_counted = false
-			_connect_player_signal()
 
 
 func _player_valid() -> bool:
@@ -607,8 +580,9 @@ func mati() -> void:
 	if has_node("Sword/CollisionShape2D"):
 		$Sword/CollisionShape2D.set_deferred("disabled", true)
 
-	if reset_on_defeat:
-		rewind_count = 0
+	# Boss mati = 1 iterasi rewind. Stat naik saat boss spawn lagi (dibaca di _ready)
+	rewind_count += 1
+	print("Boss mati -> rewind_count = ", rewind_count)
 
 	hide()
 	$CollisionShape2D.set_deferred("disabled", true)

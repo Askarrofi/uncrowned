@@ -293,10 +293,12 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_o6iob"]
 radius = 30.735622
 
-[node name="Player" type="CharacterBody2D" unique_id=1024463481]
+[node name="Player" type="CharacterBody2D" unique_id=1024463481 node_paths=PackedStringArray("health_bar", "stamina_bar")]
 z_index = 1
 collision_mask = 3
 script = ExtResource("1_onrkg")
+health_bar = NodePath("CanvasLayer/HealthBar")
+stamina_bar = NodePath("CanvasLayer/StaminaBar")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=634935388]
 position = Vector2(-3, 52)
