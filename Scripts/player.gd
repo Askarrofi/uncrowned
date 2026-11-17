@@ -28,7 +28,7 @@ const LASER_SCENE = preload("res://Scenes/laser.tscn")
 # === TAMBAHAN SISTEM HP & STAMINA (Variabel) ===
 @export var health_bar: TextureProgressBar
 @export var stamina_bar: TextureProgressBar
-@export var max_hp: int = 100
+@export var max_hp: int = 10000
 var current_hp: int
 
 @export var max_sta: int = 100
@@ -164,6 +164,7 @@ func _on_sword_body_entered(body: Node2D) -> void:
 	camera.add_trauma(0.5)
 	if body.has_method("take_damage"): 
 		body.take_damage(50)
+		$Hit.play()
 
 func take_damage(amount: int):
 	# === LOGIKA REDUKSI DAMAGE SAAT BLOCK ===

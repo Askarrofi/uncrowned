@@ -1,0 +1,23 @@
+[gd_resource type="AudioBusLayout" format=3 uid="uid://crjvklmj4prvk"]
+
+[sub_resource type="AudioEffectPitchShift" id="AudioEffectPitchShift_j3pel"]
+resource_name = "PitchShift"
+
+[sub_resource type="AudioEffectEQ21" id="AudioEffectEQ21_j3pel"]
+resource_name = "EQ21"
+
+[sub_resource type="AudioEffectHardLimiter" id="AudioEffectHardLimiter_j3pel"]
+resource_name = "HardLimiter"
+
+[sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_j3pel"]
+resource_name = "Amplify"
+
+[resource]
+bus/0/effect/0/effect = SubResource("AudioEffectPitchShift_j3pel")
+bus/0/effect/0/enabled = false
+bus/0/effect/1/effect = SubResource("AudioEffectEQ21_j3pel")
+bus/0/effect/1/enabled = false
+bus/0/effect/2/effect = SubResource("AudioEffectHardLimiter_j3pel")
+bus/0/effect/2/enabled = false
+bus/0/effect/3/effect = SubResource("AudioEffectAmplify_j3pel")
+bus/0/effect/3/enabled = false

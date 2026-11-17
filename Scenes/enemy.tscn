@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://b7fmdf7sodfal" path="res://Scenes/stat_bar.tscn" id="9_8uf12"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m4x7e"]
-size = Vector2(51, 98)
+size = Vector2(26, 83)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2hs0m"]
 atlas = ExtResource("3_auwsv")
@@ -302,7 +302,7 @@ time_rewind_scene = ExtResource("2_8uf12")
 health_bar = NodePath("CanvasLayer/HealthBar")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1521468092]
-position = Vector2(-3, 52)
+position = Vector2(-10, 56.5)
 shape = SubResource("RectangleShape2D_m4x7e")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1365026015]
@@ -316,8 +316,8 @@ autoplay = "dash"
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sword" unique_id=1280709879]
-position = Vector2(82.99999, 50)
-scale = Vector2(1.3057386, -1.2013794)
+position = Vector2(70.00001, 50)
+scale = Vector2(2.5484755, -1.6388292)
 shape = SubResource("CircleShape2D_hgeoe")
 disabled = true
 

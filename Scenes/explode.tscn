@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b00cpyux1t4vw" path="res://Assets/Explosion_blue_circle/Explosion_blue_circle9.png" id="9_yyfsn"]
 [ext_resource type="Texture2D" uid="uid://csp0ic4xeopyu" path="res://Assets/Explosion_blue_circle/Explosion_blue_circle10.png" id="10_aqen8"]
 [ext_resource type="Script" uid="uid://bw7fogfxcp5l7" path="res://Scripts/explode.gd" id="11_bl8nh"]
+[ext_resource type="AudioStream" uid="uid://jc8uahdfokcr" path="res://Sounds/vine-boom.mp3" id="12_p0w8v"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_gusgu"]
 resource_local_to_scene = true
@@ -56,5 +57,9 @@ scale = Vector2(0.359375, 0.38671875)
 sprite_frames = SubResource("SpriteFrames_gusgu")
 autoplay = "default"
 script = ExtResource("11_bl8nh")
+
+[node name="Splash" type="AudioStreamPlayer2D" parent="." unique_id=1052783577]
+stream = ExtResource("12_p0w8v")
+volume_db = 24.0
 
 [connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

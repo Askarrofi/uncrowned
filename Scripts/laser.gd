@@ -26,6 +26,4 @@ func _on_body_entered(body: Node2D) -> void:
 	camera.add_trauma(0.5)
 	if body.has_method("take_damage"): 
 		body.take_damage(10)
-	if body.has_method("take_damage"):
-		body.take_damage(10)
 	explode()

@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b3osyjhtv84en" path="res://Assets/space_background_pack/Assets/Blue Version/layered/blue-with-stars.png" id="1_444vf"]
 [ext_resource type="Shader" uid="uid://bip2wop1j5cn0" path="res://Shader/bg.gdshader" id="1_g2joa"]
+[ext_resource type="Script" uid="uid://d1kumnf1htsj6" path="res://arena.gd" id="1_iyva0"]
 [ext_resource type="Texture2D" uid="uid://b5o7e3p76lhcp" path="res://Assets/Finish.png" id="2_27ga2"]
 [ext_resource type="PackedScene" uid="uid://ckkcub07lu680" path="res://Scenes/player.tscn" id="3_nnts3"]
 [ext_resource type="PackedScene" uid="uid://c53b8nuk5cvvp" path="res://Scenes/enemy.tscn" id="4_1v1nj"]
@@ -9,6 +10,7 @@
 [ext_resource type="Shader" uid="uid://cljlej2toe11x" path="res://Shader/vignette.gdshader" id="6_csrox"]
 [ext_resource type="Script" uid="uid://dbbsbjvsa4wvm" path="res://Scripts/color_rect.gd" id="8_cs8mb"]
 [ext_resource type="PackedScene" uid="uid://xr0akrgormpr" path="res://Scenes/pause_menu.tscn" id="9_xrytr"]
+[ext_resource type="AudioStream" uid="uid://c410ylw20gaoq" path="res://Sounds/22. Gwyn, Lord of Cinder.mp3" id="10_stc3i"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cs8mb"]
 shader = ExtResource("1_g2joa")
@@ -1171,6 +1173,7 @@ shader_parameter/inner_radius = 0.3
 shader_parameter/tint = Color(0.02, 0, 0.08, 1)
 
 [node name="Arena" type="Node2D" unique_id=1362556593]
+script = ExtResource("1_iyva0")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=776277605]
 material = SubResource("ShaderMaterial_cs8mb")
@@ -1213,3 +1216,8 @@ script = ExtResource("8_cs8mb")
 metadata/_edit_use_anchors_ = true
 
 [node name="PauseMenu" parent="." unique_id=1985324392 instance=ExtResource("9_xrytr")]
+
+[node name="BGM" type="AudioStreamPlayer2D" parent="." unique_id=623488100]
+stream = ExtResource("10_stc3i")
+volume_db = 24.0
+autoplay = true
